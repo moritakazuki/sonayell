@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title Sona-yell
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+%body
+  %header
+    %div
+      .header-left
+        %a{:href => "/index"}
+          = image_tag 'logo2.png', class: "logo"
+      .header-right
+        %a.login{:href => ""} ログイン
+        %a.buy{:href => "/users/new"} 注文する
+      .clear
+
+  .container
+    = yield
+
+
+  %footer
+    %p
+      .clear
+      %center Copyright (C) 2015  Sona-yell .  All Rights Reserved
+

@@ -1,0 +1,36 @@
+/ %h1 New order
+
+/ = render 'form'
+
+/ = link_to 'Back', orders_path
+
+
+
+.index8
+  = form_tag "/orders" do
+    .top-wrapper
+      .inform
+        %h1
+          = image_tag 'check1.png'
+          商品個数
+        %table
+          %thead
+            %tr
+              %th 商品ID
+              %th 商品名
+              %th 価格
+              %th 数量
+          %tbody
+            %tr
+              %td.A-title A0001
+              %td ベーシック3000
+              %td
+                初回10000円
+                %br
+                次回以降3000円/半年
+              %td
+                = number_field_tag "count", min: 0, max: 100
+      .btns
+        = submit_tag "次へ", class: "btn message btn"
+        %a.next2{:href => "/users/new"}
+          .btn.message.btn2 戻る

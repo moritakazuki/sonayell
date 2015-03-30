@@ -1,0 +1,97 @@
+
+.index2
+  .top-wrapper
+    %div
+      %div
+        %h1
+          = image_tag 'check1.png'
+          ご注文フォーム
+        %p
+          Sona-yellの商品をご注文の際は、以下より必要事項をご入力の上、
+          %br
+          最後に下段にある「ご注文」ボタンをクリックし、ご注文ください。
+      = form_for @user do |f|
+        %div
+          %h1
+            = image_tag 'check1.png'
+            注文者情報
+          %table
+            %thead
+              %tr
+                %th はじめての方
+                %th
+                  下のフォームにお客様のお名前、ご住所、電話番号、
+                  %br
+                  メールアドレスを入力し、
+                  %br
+                  「次へ」ボタンを押してください。
+                  %br
+                  必須の項目は必ず入力してください。
+            %tbody
+              %tr
+                %td お名前　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      姓：
+                      = f.text_field :firstk
+                      名：
+                      = f.text_field :lastk
+                    %p
+                      例：山田　　　　　　　　　太郎
+              %tr
+                %td ふりがな　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      せい：
+                      = f.text_field :firstf
+                      めい：
+                      = f.text_field :lastf
+                    %p
+                      例　：やまだ　　　　　　　　たろう
+              %tr
+                %td 郵便番号　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      = f.text_field :code
+                    %p
+                      例：1234567
+                      %br ハイフンを挟まないでください。
+              %tr
+                %td 住所　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      = f.text_field :address
+                    %p
+                      例：東京都品川区目黒区1-1-1山田ビル101号室
+              %tr
+                %td 電話番号　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      = f.text_field :phone
+                    %p
+                      例：01234567890　ハイフンを挟まないでください。
+              %tr
+                %td メールアドレス　必須
+                %td
+                  %form{:method => "post"}
+                    %p
+                      = f.text_field :mailadress
+                      %br
+                      確認のため、もう一度ご記入ください
+                      %br
+                      = f.text_field :mailadress
+                      %br
+              %tr
+                %td 支払い方法　
+                %td
+                  %form{:method => "post"}
+                    %p
+                      代引き
+        %p
+          %a.next{:href => "users/orders/new"}
+            = f.submit '次へ', class: "btn message clear"
